@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>문풀 | 수업방식 비교</title>
+<meta name="description" content="개념 선행, 반복 훈련, 오답 분석 — 전국 교육기관의 수업방식을 데이터로 비교합니다.">
+<meta name="keywords" content="수업방식비교, 교육방식, 개념선행, 반복훈련, 오답분석, 교육선택, 교육비교">
+<link rel="canonical" href="https://munpul.kr/">
+<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://munpul.kr/">
+<meta property="og:site_name" content="문풀">
+<meta property="og:title" content="문풀 | 수업방식 비교">
+<meta property="og:description" content="개념 선행, 반복 훈련, 오답 분석 — 전국 교육기관의 수업방식을 데이터로 비교합니다.">
+<meta property="og:image" content="https://munpul.kr/apple-touch-icon.png">
+<meta property="og:locale" content="ko_KR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{font-family:'Barlow',sans-serif;background:#000;color:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden;word-break:keep-all}
+:root{--g:#76B900;--border:rgba(118,185,0,0.15);--dim:rgba(255,255,255,0.06)}
+
+nav{
+  position:sticky;top:0;z-index:100;
+  height:56px;background:rgba(0,0,0,0.95);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(118,185,0,0.2);
+}
+.nav-inner{max-width:1400px;margin:0 auto;padding:0 32px;height:100%;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:900;letter-spacing:0.06em;text-transform:uppercase}
+.nav-logo em{color:var(--g);font-style:normal}
+.nav-tag{font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.3)}
+
+.hero{
+  min-height:100svh;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:100px 32px 64px;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 50% at 75% 50%, rgba(118,185,0,0.08) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 40% at 20% 80%, rgba(118,185,0,0.03) 0%, transparent 60%);
+  pointer-events:none;
+}
+.hero-grid{max-width:1400px;width:100%;margin:0 auto;display:grid;gap:48px;position:relative;z-index:1}
+@media(min-width:768px){.hero-grid{grid-template-columns:1fr auto;align-items:end;gap:80px}}
+.hero-eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--g);margin-bottom:20px}
+.hero-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(56px,12vw,160px);
+  font-weight:900;line-height:0.95;letter-spacing:-0.01em;
+  text-transform:uppercase;
+  margin-bottom:28px;
+}
+.hero-title .accent{color:var(--g)}
+.hero-title .dim{color:rgba(255,255,255,0.12)}
+.hero-body{font-size:15px;color:rgba(255,255,255,0.45);line-height:1.8;max-width:420px;font-weight:300}
+.hero-kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(118,185,0,0.15);min-width:260px}
+@media(min-width:480px){.hero-kpis{grid-template-columns:repeat(4,1fr);min-width:auto}}
+@media(min-width:768px){.hero-kpis{grid-template-columns:repeat(2,1fr)}}
+.hkpi{padding:22px 18px;background:#000}
+.hkpi-num{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:900;color:var(--g);letter-spacing:0.02em;line-height:1}
+.hkpi-label{font-size:10px;color:rgba(255,255,255,0.3);margin-top:4px;letter-spacing:0.08em;text-transform:uppercase}
+
+.g-strip{background:var(--g);padding:13px 32px;overflow:hidden}
+.gs-inner{max-width:1400px;margin:0 auto;display:flex;gap:48px;overflow-x:auto}
+.gs-item{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:#000;white-space:nowrap;flex-shrink:0}
+
+.methods{padding:80px 32px}
+@media(min-width:768px){.methods{padding:96px 32px}}
+.methods-inner{max-width:1400px;margin:0 auto}
+.section-hd{margin-bottom:52px}
+.section-eyebrow{font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--g);margin-bottom:10px}
+.section-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(32px,4.5vw,52px);font-weight:900;letter-spacing:0.01em;text-transform:uppercase}
+
+.mc-grid{display:grid;grid-template-columns:1fr;gap:1px;background:rgba(118,185,0,0.12)}
+@media(min-width:768px){.mc-grid{grid-template-columns:repeat(3,1fr)}}
+.mc{background:#000;padding:36px 32px;position:relative;overflow:hidden}
+.mc::before{
+  content:attr(data-letter);
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:160px;font-weight:900;
+  color:rgba(118,185,0,0.05);
+  position:absolute;top:-16px;right:-8px;line-height:1;
+  pointer-events:none;
+}
+.mc-letter{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;
+  color:rgba(118,185,0,0.5);
+  margin-bottom:16px;
+}
+.mc-title{font-family:'Barlow Condensed',sans-serif;font-size:32px;font-weight:900;letter-spacing:0.03em;text-transform:uppercase;margin-bottom:12px;color:var(--g)}
+.mc-body{font-size:14px;line-height:1.85;color:rgba(255,255,255,0.45);margin-bottom:24px;font-weight:300}
+.mc-pts{list-style:none;display:flex;flex-direction:column;gap:8px}
+.mc-pt{font-size:13px;color:rgba(255,255,255,0.6);padding-left:20px;position:relative}
+.mc-pt::before{content:'▶';position:absolute;left:0;color:var(--g);font-size:9px;top:2px}
+
+.cmp-section{padding:0 32px 80px}
+.cmp-inner{max-width:1400px;margin:0 auto}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid rgba(118,185,0,0.2)}
+table{width:100%;border-collapse:collapse;min-width:640px}
+table thead tr{background:var(--g)}
+table th{padding:14px 18px;text-align:left;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#000}
+table td{padding:18px 18px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:14px;vertical-align:middle}
+table tr:hover td{background:rgba(118,185,0,0.04)}
+.td-ac{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:800;letter-spacing:0.03em;text-transform:uppercase}
+.m-badge{display:inline-flex;align-items:center;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:800;padding:4px 10px;letter-spacing:0.06em;text-transform:uppercase}
+.m-a{background:var(--g);color:#000}
+.m-b{background:rgba(255,255,255,0.1);color:#fff}
+.m-c{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.5)}
+.bar-t{height:4px;background:rgba(255,255,255,0.08);width:80px;display:inline-block;vertical-align:middle;margin-left:8px}
+.bar-f{height:100%;background:var(--g)}
+
+.stats-sec{
+  border-top:1px solid rgba(118,185,0,0.2);
+  border-bottom:1px solid rgba(118,185,0,0.2);
+  padding:0 32px;
+  background:rgba(118,185,0,0.03);
+}
+.stats-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(118,185,0,0.12)}
+@media(min-width:768px){.stats-inner{grid-template-columns:repeat(4,1fr)}}
+.s-cell{background:#000;padding:48px 28px}
+.s-num{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(40px,5.5vw,64px);font-weight:900;color:var(--g);
+  letter-spacing:-0.01em;line-height:1;
+  text-shadow:0 0 40px rgba(118,185,0,0.4);
+}
+.s-label{font-size:11px;color:rgba(255,255,255,0.3);margin-top:10px;letter-spacing:0.08em;text-transform:uppercase;line-height:1.6}
+
+.ranking-sec{padding:80px 32px}
+.ranking-inner{max-width:1400px;margin:0 auto;display:grid;gap:40px}
+@media(min-width:768px){.ranking-inner{grid-template-columns:1fr 1fr}}
+.rk-item{display:flex;gap:20px;padding:22px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.rk-n{font-family:'Barlow Condensed',sans-serif;font-size:52px;font-weight:900;color:rgba(118,185,0,0.1);line-height:1;flex-shrink:0;width:52px;text-align:right}
+.rk-info{}
+.rk-name{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;letter-spacing:0.03em;text-transform:uppercase;margin-bottom:4px;color:#fff}
+.rk-meta{font-size:12px;color:rgba(255,255,255,0.3);display:flex;gap:14px;flex-wrap:wrap}
+.rk-meta span{white-space:nowrap}
+
+footer{border-top:3px solid var(--g);padding:32px 32px}
+.foot-inner{max-width:1400px;margin:0 auto;display:flex;flex-direction:column;gap:8px}
+@media(min-width:560px){.foot-inner{flex-direction:row;justify-content:space-between;align-items:center}}
+.f-logo{font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:900;letter-spacing:0.06em;text-transform:uppercase}
+.f-logo em{color:var(--g);font-style:normal}
+.f-meta{font-size:11px;color:rgba(255,255,255,0.2);letter-spacing:0.06em;text-transform:uppercase}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "@id": "https://munpul.kr/#organization",
+  "name": "문풀",
+  "alternateName": ["Munpul", "문풀 비교"],
+  "url": "https://munpul.kr",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://munpul.kr/apple-touch-icon.png",
+    "width": 180,
+    "height": 180
+  },
+  "image": "https://munpul.kr/apple-touch-icon.png",
+  "description": "개념·훈련·오답 기준으로 데이터 비교",
+  "areaServed": "대한민국",
+  "telephone": "010-9172-4856",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "부산광역시 해운대구 우동 1480",
+    "addressCountry": "KR"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://munpul.kr/#website",
+  "name": "문풀",
+  "alternateName": ["Munpul", "문풀 비교"],
+  "url": "https://munpul.kr",
+  "publisher": {
+    "@id": "https://munpul.kr/#organization"
+  },
+  "inLanguage": "ko-KR"
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">문<em>풀</em></div>
+    <div class="nav-tag">수업방식 비교 분석</div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow">Academy Comparison · 2026</div>
+      <h1 class="hero-title">
+        <div>어떤</div>
+        <div class="accent">방식이</div>
+        <div class="dim">효과적인가</div>
+      </h1>
+      <p class="hero-body">개념 선행, 반복 훈련, 오답 분석 — 세 가지 수업방식의 성적 향상 데이터를 전국 684개 기관 데이터로 비교합니다.</p>
+    </div>
+    <div class="hero-kpis">
+      <div class="hkpi"><div class="hkpi-num">684</div><div class="hkpi-label">비교 기관</div></div>
+      <div class="hkpi"><div class="hkpi-num">12,841</div><div class="hkpi-label">학생 데이터</div></div>
+      <div class="hkpi"><div class="hkpi-num">+28점</div><div class="hkpi-label">평균 향상</div></div>
+      <div class="hkpi"><div class="hkpi-num">3가지</div><div class="hkpi-label">수업방식</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="g-strip">
+  <div class="gs-inner">
+    <span class="gs-item">684 기관</span>
+    <span class="gs-item">12,841 학생</span>
+    <span class="gs-item">평균 성적향상 +28점</span>
+    <span class="gs-item">개념선행 94%</span>
+    <span class="gs-item">반복훈련 88%</span>
+    <span class="gs-item">오답분석 82%</span>
+  </div>
+</div>
+
+<div class="methods">
+  <div class="methods-inner">
+    <div class="section-hd">
+      <div class="section-eyebrow">01 수업방식</div>
+      <h2 class="section-title">3가지 방식 비교</h2>
+    </div>
+    <div class="mc-grid">
+      <div class="mc" data-letter="A">
+        <div class="mc-letter">Method / A</div>
+        <div class="mc-title">개념 선행</div>
+        <div class="mc-body">개념을 완벽히 이해한 뒤 문제를 적용합니다. 장기적 실력 향상에 최적화된 방식으로 수능 최상위권 학생들이 선호합니다.</div>
+        <ul class="mc-pts">
+          <li class="mc-pt">개념 이해 최우선</li>
+          <li class="mc-pt">장기적 실력 향상</li>
+          <li class="mc-pt">수능 1등급 달성률 높음</li>
+          <li class="mc-pt">성적향상률 94%</li>
+        </ul>
+      </div>
+      <div class="mc" data-letter="B">
+        <div class="mc-letter">Method / B</div>
+        <div class="mc-title">반복 훈련</div>
+        <div class="mc-body">동일 유형을 반복하여 패턴을 암기합니다. 단기간 성적 향상에 효과적이며 내신 대비에 특히 유리합니다.</div>
+        <ul class="mc-pts">
+          <li class="mc-pt">유형 패턴 암기</li>
+          <li class="mc-pt">내신 단기 상승</li>
+          <li class="mc-pt">시험 적응력 강화</li>
+          <li class="mc-pt">성적향상률 88%</li>
+        </ul>
+      </div>
+      <div class="mc" data-letter="C">
+        <div class="mc-letter">Method / C</div>
+        <div class="mc-title">오답 분석</div>
+        <div class="mc-body">틀린 문제를 중심으로 취약점을 파악하고 보완합니다. 효율적인 시간 투자로 중위권 학생에게 추천합니다.</div>
+        <ul class="mc-pts">
+          <li class="mc-pt">개인 약점 집중 보완</li>
+          <li class="mc-pt">효율적 학습 시간</li>
+          <li class="mc-pt">중위→상위권 전환</li>
+          <li class="mc-pt">성적향상률 82%</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cmp-section">
+  <div class="cmp-inner">
+    <div class="section-hd">
+      <div class="section-eyebrow">02 수업 데이터</div>
+      <h2 class="section-title">학원별 수업방식 현황</h2>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>기관명</th><th>지역</th><th>수업방식</th><th>성적향상</th><th>월수강료</th><th>만족도</th></tr></thead>
+        <tbody>
+          <tr><td class="td-ac">광주 첨단 수학원</td><td>광주 북구</td><td><span class="m-badge m-a">개념선행 A</span></td><td>+36점 <div class="bar-t"><div class="bar-f" style="width:100%"></div></div></td><td>32만원</td><td>★ 4.9</td></tr>
+          <tr><td class="td-ac">대구 범어 영어원</td><td>대구 수성구</td><td><span class="m-badge m-b">반복훈련 B</span></td><td>+29점 <div class="bar-t"><div class="bar-f" style="width:81%"></div></div></td><td>27만원</td><td>★ 4.8</td></tr>
+          <tr><td class="td-ac">부산 해운대 과학원</td><td>부산 해운대</td><td><span class="m-badge m-a">개념선행 A</span></td><td>+33점 <div class="bar-t"><div class="bar-f" style="width:92%"></div></div></td><td>38만원</td><td>★ 4.7</td></tr>
+          <tr><td class="td-ac">인천 송도 논술센터</td><td>인천 연수구</td><td><span class="m-badge m-c">오답분석 C</span></td><td>+24점 <div class="bar-t"><div class="bar-f" style="width:67%"></div></div></td><td>29만원</td><td>★ 4.8</td></tr>
+          <tr><td class="td-ac">대전 유성 수능연구소</td><td>대전 유성구</td><td><span class="m-badge m-b">반복훈련 B</span></td><td>+27점 <div class="bar-t"><div class="bar-f" style="width:75%"></div></div></td><td>34만원</td><td>★ 4.7</td></tr>
+          <tr><td class="td-ac">수원 광교 코딩원</td><td>경기 수원시</td><td><span class="m-badge m-a">개념선행 A</span></td><td>+34점 <div class="bar-t"><div class="bar-f" style="width:94%"></div></div></td><td>30만원</td><td>★ 4.8</td></tr>
+          <tr><td class="td-ac">제주 노형 영어원</td><td>제주 제주시</td><td><span class="m-badge m-c">오답분석 C</span></td><td>+20점 <div class="bar-t"><div class="bar-f" style="width:56%"></div></div></td><td>21만원</td><td>★ 4.6</td></tr>
+          <tr><td class="td-ac">창원 성산 수학전문</td><td>경남 창원시</td><td><span class="m-badge m-b">반복훈련 B</span></td><td>+25점 <div class="bar-t"><div class="bar-f" style="width:69%"></div></div></td><td>24만원</td><td>★ 4.6</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="stats-sec">
+  <div class="stats-inner">
+    <div class="s-cell"><div class="s-num">94%</div><div class="s-label">개념선행<br>성적향상률</div></div>
+    <div class="s-cell"><div class="s-num">+34점</div><div class="s-label">최대 수학<br>향상폭 (6개월)</div></div>
+    <div class="s-cell"><div class="s-num">684</div><div class="s-label">데이터 보유<br>기관 수</div></div>
+    <div class="s-cell"><div class="s-num">3개월</div><div class="s-label">평균 체감<br>향상 시점</div></div>
+  </div>
+</div>
+
+<div class="ranking-sec">
+  <div class="ranking-inner">
+    <div>
+      <div class="section-hd">
+        <div class="section-eyebrow">03 지역별 순위</div>
+        <h2 class="section-title">인기 학원</div>
+      </div>
+      <div class="rk-item"><div class="rk-n">1</div><div class="rk-info"><div class="rk-name">광주 첨단 수학원</div><div class="rk-meta"><span>광주 북구 · 수학</span><span>★ 4.9</span><span>월 32만원</span></div></div></div>
+      <div class="rk-item"><div class="rk-n">2</div><div class="rk-info"><div class="rk-name">부산 해운대 과학원</div><div class="rk-meta"><span>부산 해운대 · 과학</span><span>★ 4.7</span><span>월 38만원</span></div></div></div>
+      <div class="rk-item"><div class="rk-n">3</div><div class="rk-info"><div class="rk-name">수원 광교 코딩원</div><div class="rk-meta"><span>경기 수원시 · 코딩</span><span>★ 4.8</span><span>월 30만원</span></div></div></div>
+      <div class="rk-item"><div class="rk-n">4</div><div class="rk-info"><div class="rk-name">대구 범어 영어원</div><div class="rk-meta"><span>대구 수성구 · 영어</span><span>★ 4.8</span><span>월 27만원</span></div></div></div>
+    </div>
+    <div>
+      <div class="section-hd">
+        <div class="section-eyebrow" style="opacity:0">—</div>
+        <div class="section-title" style="opacity:0">—</div>
+      </div>
+      <div class="rk-item"><div class="rk-n">5</div><div class="rk-info"><div class="rk-name">인천 송도 논술센터</div><div class="rk-meta"><span>인천 연수구 · 논술</span><span>★ 4.8</span><span>월 29만원</span></div></div></div>
+      <div class="rk-item"><div class="rk-n">6</div><div class="rk-info"><div class="rk-name">대전 유성 수능연구소</div><div class="rk-meta"><span>대전 유성구 · 수능</span><span>★ 4.7</span><span>월 34만원</span></div></div></div>
+      <div class="rk-item"><div class="rk-n">7</div><div class="rk-info"><div class="rk-name">창원 성산 수학전문</div><div class="rk-meta"><span>경남 창원시 · 수학</span><span>★ 4.6</span><span>월 24만원</span></div></div></div>
+      <div class="rk-item"><div class="rk-n">8</div><div class="rk-info"><div class="rk-name">제주 노형 영어원</div><div class="rk-meta"><span>제주 제주시 · 영어</span><span>★ 4.6</span><span>월 21만원</span></div></div></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="foot-inner">
+    <div class="f-logo">문<em>풀</em></div>
+    <div class="f-meta">© 2026 문풀 · 684개 기관 · 수업방식 비교</div>
+  </div>
+</footer>
+
+</body>
+</html>
