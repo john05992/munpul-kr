@@ -1,0 +1,48 @@
+[ munpul.kr — 문풀 | 수업방식 비교 ]
+
+■ title: 문풀 | 수업방식 비교
+■ description: 개념 선행·반복 훈련·오답 분석 — 전국 교육기관의 수업방식을 데이터로 비교합니다.
+■ keywords: 수업방식비교, 교육방식, 개념선행, 반복훈련, 오답분석, 교육선택, 교육비교
+
+─────────────────────────────────────────
+
+<!-- 구조화 데이터: EducationalOrganization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "@id": "https://munpul.kr/#organization",
+  "name": "문풀",
+  "alternateName": ["Munpul", "문풀 비교"],
+  "url": "https://munpul.kr",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://munpul.kr/apple-touch-icon.png",
+    "width": 180,
+    "height": 180
+  },
+  "image": "https://munpul.kr/apple-touch-icon.png",
+  "description": "개념·훈련·오답 기준으로 데이터 비교",
+  "areaServed": "대한민국",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "KR"
+  }
+}
+</script>
+
+<!-- 구조화 데이터: WebSite -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://munpul.kr/#website",
+  "name": "문풀",
+  "alternateName": ["Munpul", "문풀 비교"],
+  "url": "https://munpul.kr",
+  "publisher": {
+    "@id": "https://munpul.kr/#organization"
+  },
+  "inLanguage": "ko-KR"
+}
+</script>
