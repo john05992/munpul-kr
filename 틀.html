@@ -6,6 +6,13 @@
   <title>{{title}}</title>
   <meta name="robots" content="index,follow">
   <meta name="description" content="{{meta}}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{title}}">
+  <meta property="og:description" content="{{meta}}">
+  <meta property="og:url" content="{{페이지url}}">
+  <meta property="og:image" content="https://munpul.kr/img/mp-interior.webp">
+  <meta property="og:image:width" content="2048">
+  <meta property="og:image:height" content="1365">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://nam.veta.naver.com" crossorigin>
   <link rel="preload" as="style" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" onload="this.onload=null;this.rel='stylesheet'">
@@ -224,42 +231,46 @@
     .mp-cur-item::before { flex-shrink:0; margin-top:1px; font-weight:900; color:#FF4714; content:'·'; }
     .mp-cur-item strong { font-weight:700; color:#fff; }
 
+    /* ── AI 이미지 ── */
+    .mp-ai-img-wrap { padding: 0 24px 56px; background: #fff; }
+    .mp-ai-img { width: 100%; margin: 0 auto; max-width: 720px; border-radius: 20px; display: block; }
+
     /* ── 추천 ── */
     .mp-rec-section { padding:72px 20px 80px; background:#fff; }
     .mp-rec-inner { max-width:900px; margin:0 auto; }
-    .mp-rec-eyebrow { font-size:.72rem; letter-spacing:.14em; font-weight:900; color:#FF4714; text-align:center; text-transform:uppercase; margin-bottom:12px; }
-    .mp-rec-title { font-weight:900; text-align:center; letter-spacing:-.04em; color:#111; font-size:clamp(1.6rem,4vw,2.2rem); line-height:1.35; margin-bottom:48px; }
-    .mp-rec-cards { gap:16px; display:flex; flex-direction:column; }
-    @media(min-width:640px){ .mp-rec-cards{ gap:18px; flex-direction:row; } .mp-rec-card{ flex:1; } }
-    .mp-rec-card { position:relative; flex-direction:column; border-radius:20px; gap:14px; padding:28px 24px 26px; background:#fafafa; display:flex; border:1px solid #f0f0f0; overflow:hidden; }
-    .mp-rec-card::before { height:3px; left:0; position:absolute; content:''; background:linear-gradient(90deg,#FF4714,#f4af1a); right:0; top:0; }
+    .mp-rec-eyebrow { margin-bottom:12px; letter-spacing:.14em; font-size:.72rem; color:#FF4714; text-transform:uppercase; text-align:center; font-weight:900; }
+    .mp-rec-title { margin-bottom:48px; text-align:center; font-size:clamp(1.6rem,4vw,2.2rem); color:#111; line-height:1.35; font-weight:900; letter-spacing:-.04em; }
+    .mp-rec-cards { flex-direction:column; gap:16px; display:flex; }
+    @media(min-width:640px){ .mp-rec-cards{ flex-direction:row; gap:18px; } .mp-rec-card{ flex:1; } }
+    .mp-rec-card { border:1px solid #f0f0f0; padding:28px 24px 26px; position:relative; background:#fafafa; border-radius:20px; flex-direction:column; gap:14px; display:flex; overflow:hidden; }
+    .mp-rec-card::before { left:0; height:3px; top:0; right:0; background:linear-gradient(90deg,#FF4714,#f4af1a); position:absolute; content:''; }
     .mp-rec-num { font-size:2.6rem; font-weight:900; background:linear-gradient(135deg,#FF4714,#f4af1a); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1; }
-    .mp-rec-card-title { font-weight:900; color:#111; font-size:1.08rem; line-height:1.45; }
-    .mp-rec-card-desc { line-height:1.75; color:#888; flex:1; font-size:.83rem; }
-    .mp-rec-check { background:#fff5f2; align-items:center; display:flex; border-radius:8px; color:#444; font-size:.82rem; gap:7px; font-weight:700; padding:8px 12px; }
-    .mp-rec-check::before { flex-shrink:0; color:#FF4714; font-weight:900; font-size:.9rem; content:'✓'; }
-    .mp-rec-footer { margin-top:44px; border-radius:16px; text-align:center; background:linear-gradient(135deg,#fff7f4,#fffdf0); padding:28px 24px; border:1px solid #fde8df; }
-    .mp-rec-footer-text { font-size:clamp(1rem,3vw,1.18rem); line-height:1.7; font-weight:700; color:#111; }
+    .mp-rec-card-title { line-height:1.45; font-size:1.08rem; color:#111; font-weight:900; }
+    .mp-rec-card-desc { font-size:.83rem; line-height:1.75; flex:1; color:#888; }
+    .mp-rec-check { padding:8px 12px; gap:7px; color:#444; font-weight:700; display:flex; background:#fff5f2; align-items:center; border-radius:8px; font-size:.82rem; }
+    .mp-rec-check::before { content:'✓'; font-size:.9rem; color:#FF4714; font-weight:900; flex-shrink:0; }
+    .mp-rec-footer { text-align:center; border-radius:16px; border:1px solid #fde8df; background:linear-gradient(135deg,#fff7f4,#fffdf0); margin-top:44px; padding:28px 24px; }
+    .mp-rec-footer-text { color:#111; font-weight:700; line-height:1.7; font-size:clamp(1rem,3vw,1.18rem); }
     .mp-rec-footer-hl { background:linear-gradient(90deg,#FF4714,#f4af1a); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; font-weight:900; }
 
     /* ── SECTIONS COMMON (유동 영역) ── */
     .mp-sec { padding: 90px 24px; }
-    .mp-sec-inner { margin: 0 auto; max-width: 960px; }
+    .mp-sec-inner { max-width: 960px; margin: 0 auto; }
     .mp-sec-dark { background: #f8f8f8; }
     .mp-sec-light { background: #fdfcf8; }
     .mp-sec-mid { background: #f5f5f1; }
-    .mp-sec h2 { font-weight: 900; color: #111; margin-bottom: 20px; word-break: keep-all; font-size: clamp(1.6rem, 3.5vw, 2.2rem); letter-spacing: -.03em; line-height: 1.3; }
-    .mp-sec h3 { font-weight: 900; color: #111; font-size: 1.05rem; margin-bottom: 16px; line-height: 1.5; margin-top: 28px; }
-    .mp-sec-divider { margin-bottom: 24px; width: 48px; background: #FF4714; height: 3px; border-radius: 2px; }
+    .mp-sec h2 { word-break: keep-all; line-height: 1.3; letter-spacing: -.03em; color: #111; font-weight: 900; font-size: clamp(1.6rem, 3.5vw, 2.2rem); margin-bottom: 20px; }
+    .mp-sec h3 { line-height: 1.5; margin-top: 28px; font-size: 1.05rem; color: #111; font-weight: 900; margin-bottom: 16px; }
+    .mp-sec-divider { margin-bottom: 24px; border-radius: 2px; height: 3px; background: #FF4714; width: 48px; }
     .mp-body-text { line-height: 1.85; color: #555; font-size: 1rem; word-break: keep-all; }
-    .mp-text-card { margin-top: 24px; padding: 36px 32px; border: 1px solid rgba(0,0,0,.08); border-radius: 20px; background: #f0f0f0; }
-    .mp-text-card-light { margin-top: 24px; padding: 36px 32px; background: #fff; border: 1px solid #e8e8e8; border-radius: 20px; box-shadow: 0 4px 24px rgba(0,0,0,.06); }
-    .mp-check-list { margin-top: 24px; list-style: none; gap: 13px; display: flex; flex-direction: column; }
-    .mp-check-item { display: flex; align-items: flex-start; font-size: .9rem; font-weight: 700; color: #444; line-height: 1.55; gap: 12px; }
-    .mp-check-icon { flex-shrink: 0; margin-top: 2px; color: #FF4714; font-weight: 900; }
-    .mp-grade-grid { display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 960px; margin: 32px auto 0; }
+    .mp-text-card { border: 1px solid rgba(0,0,0,.08); background: #f0f0f0; margin-top: 24px; border-radius: 20px; padding: 36px 32px; }
+    .mp-text-card-light { background: #fff; box-shadow: 0 4px 24px rgba(0,0,0,.06); padding: 36px 32px; border: 1px solid #e8e8e8; margin-top: 24px; border-radius: 20px; }
+    .mp-check-list { list-style: none; display: flex; margin-top: 24px; gap: 13px; flex-direction: column; }
+    .mp-check-item { color: #444; font-size: .9rem; font-weight: 700; display: flex; align-items: flex-start; gap: 12px; line-height: 1.55; }
+    .mp-check-icon { margin-top: 2px; font-weight: 900; color: #FF4714; flex-shrink: 0; }
+    .mp-grade-grid { display: grid; margin: 32px auto 0; grid-template-columns: 1fr; gap: 24px; max-width: 960px; }
     @media (min-width: 640px) { .mp-grade-grid { grid-template-columns: repeat(3,1fr); } }
-    .mp-grade-card { box-shadow: 0 8px 32px rgba(0,0,0,.07); opacity: 0; padding: 4px; background: #fff; overflow: hidden; animation: fadeInUp .7s ease forwards; transition: all .4s ease; transform: translateY(30px); border-radius: 24px; position: relative; }
+    .mp-grade-card { overflow: hidden; animation: fadeInUp .7s ease forwards; transform: translateY(30px); background: #fff; position: relative; border-radius: 24px; opacity: 0; padding: 4px; box-shadow: 0 8px 32px rgba(0,0,0,.07); transition: all .4s ease; }
     .mp-grade-card:nth-child(1) { animation-delay: .1s; }
     .mp-grade-card:nth-child(2) { animation-delay: .25s; }
     .mp-grade-card:nth-child(3) { animation-delay: .4s; }
@@ -267,55 +278,56 @@
     .mp-grade-card-1::before { background: linear-gradient(135deg,#3B82F6,#8B5CF6); }
     .mp-grade-card-2::before { background: linear-gradient(135deg,#FF4714,#EC4899); }
     .mp-grade-card-3::before { background: linear-gradient(135deg,#10B981,#06B6D4); }
-    .mp-grade-card:hover { transform: translateY(-10px); box-shadow: 0 22px 55px rgba(0,0,0,.12); }
-    .mp-grade-badge { z-index: 10; align-items: center; font-weight: 900; border-radius: 50%; justify-content: center; position: absolute; box-shadow: 0 6px 20px rgba(0,0,0,.2); font-size: 1.2rem; display: flex; top: -12px; width: 56px; height: 56px; right: 24px; color: #fff; }
+    .mp-grade-card:hover { box-shadow: 0 22px 55px rgba(0,0,0,.12); transform: translateY(-10px); }
+    .mp-grade-badge { z-index: 10; font-weight: 900; color: #fff; height: 56px; position: absolute; box-shadow: 0 6px 20px rgba(0,0,0,.2); width: 56px; align-items: center; border-radius: 50%; top: -12px; font-size: 1.2rem; justify-content: center; display: flex; right: 24px; }
     .mp-grade-card-1 .mp-grade-badge { background: linear-gradient(135deg,#3B82F6,#8B5CF6); }
     .mp-grade-card-2 .mp-grade-badge { background: linear-gradient(135deg,#FF4714,#EC4899); }
     .mp-grade-card-3 .mp-grade-badge { background: linear-gradient(135deg,#10B981,#06B6D4); }
-    .mp-grade-content { border-radius: 20px; background: #fff; padding: 40px 24px 32px; }
-    .mp-grade-title { font-size: 1.6rem; margin-bottom: 12px; font-weight: 900; color: #111; }
-    .mp-grade-divider { height: 3px; margin-bottom: 16px; transition: width .3s; width: 40px; border-radius: 2px; }
+    .mp-grade-content { padding: 40px 24px 32px; border-radius: 20px; background: #fff; }
+    .mp-grade-title { margin-bottom: 12px; font-weight: 900; color: #111; font-size: 1.6rem; }
+    .mp-grade-divider { height: 3px; width: 40px; margin-bottom: 16px; transition: width .3s; border-radius: 2px; }
     .mp-grade-card-1 .mp-grade-divider { background: linear-gradient(90deg,#3B82F6,#8B5CF6); }
     .mp-grade-card-2 .mp-grade-divider { background: linear-gradient(90deg,#FF4714,#EC4899); }
     .mp-grade-card-3 .mp-grade-divider { background: linear-gradient(90deg,#10B981,#06B6D4); }
     .mp-grade-card:hover .mp-grade-divider { width: 64px; }
     .mp-grade-desc { font-size: .9rem; color: #555; line-height: 1.65; }
-    .mp-table-wrap { margin-top: 28px; box-shadow: 0 4px 20px rgba(0,0,0,.08); border-radius: 16px; overflow: hidden; overflow-x: auto; }
+    .mp-table-wrap { overflow-x: auto; overflow: hidden; margin-top: 28px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,.08); }
     .mp-info-table { width: 100%; border-collapse: collapse; }
     .mp-info-table tr { border-bottom: 1px solid rgba(0,0,0,.07); }
     .mp-info-table tr:last-child { border-bottom: none; }
-    .mp-td-label { font-weight: 700; color: #fff; width: 120px; background: #FF4714; padding: 16px 20px; font-size: .88rem; vertical-align: top; white-space: nowrap; }
-    .mp-td-val { background: #fff; padding: 16px 20px; color: #333; font-size: .92rem; line-height: 1.6; }
-    .mp-faq-wrap { margin-top: 28px; display: flex; flex-direction: column; gap: 12px; }
-    .mp-faq-item { border-radius: 14px; overflow: hidden; background: #fff; border: 1px solid #e5e5e5; }
-    .mp-faq-q { width: 100%; font-weight: 700; font-size: .95rem; border: none; cursor: pointer; background: none; font-family: inherit; justify-content: space-between; padding: 20px 22px; display: flex; gap: 12px; text-align: left; align-items: flex-start; color: #111; }
-    .mp-faq-arrow { margin-top: 2px; font-size: 1rem; flex-shrink: 0; transition: transform .3s; color: #FF4714; }
+    .mp-td-label { background: #FF4714; font-size: .88rem; width: 120px; vertical-align: top; padding: 16px 20px; font-weight: 700; color: #fff; white-space: nowrap; }
+    .mp-td-val { color: #333; background: #fff; line-height: 1.6; font-size: .92rem; padding: 16px 20px; }
+    .mp-faq-wrap { flex-direction: column; display: flex; gap: 12px; margin-top: 28px; }
+    .mp-faq-item { border-radius: 14px; background: #fff; overflow: hidden; border: 1px solid #e5e5e5; }
+    .mp-faq-q { font-weight: 700; font-family: inherit; border: none; cursor: pointer; text-align: left; padding: 20px 22px; display: flex; gap: 12px; background: none; width: 100%; font-size: .95rem; color: #111; justify-content: space-between; align-items: flex-start; }
+    .mp-faq-arrow { flex-shrink: 0; font-size: 1rem; color: #FF4714; margin-top: 2px; transition: transform .3s; }
     .mp-faq-item.mp-open .mp-faq-arrow { transform: rotate(180deg); }
-    .mp-faq-a { color: #555; padding: 0 22px 18px; font-size: .9rem; line-height: 1.75; display: none; }
+    .mp-faq-a { color: #555; line-height: 1.75; padding: 0 22px 18px; font-size: .9rem; display: none; }
     .mp-faq-item.mp-open .mp-faq-a { display: block; }
 
     /* ── 링크 섹션 ── */
     .mp-lk-section { padding: 64px 24px 56px; background: #f8f8f6; border-bottom: 1px solid #ebebeb; }
-    .mp-lk-eyebrow { display: block; text-transform: uppercase; font-weight: 900; color: #FF4714; font-size: .68rem; letter-spacing: .22em; margin-bottom: 12px; }
-    .mp-lk-section h2 { letter-spacing: -.04em; line-height: 1.25; color: #111; font-size: clamp(1.5rem, 3.5vw, 2.1rem); font-weight: 900; margin-bottom: 36px; }
+    .mp-lk-eyebrow { margin-bottom: 12px; color: #FF4714; text-transform: uppercase; letter-spacing: .22em; font-size: .68rem; display: block; font-weight: 900; }
+    .mp-lk-section h2 { line-height: 1.25; font-weight: 900; font-size: clamp(1.5rem, 3.5vw, 2.1rem); color: #111; letter-spacing: -.04em; margin-bottom: 36px; }
+    #mp-lk-section h3 { color: #111; line-height: 1.25; font-weight: 900; margin-bottom: 36px; font-size: clamp(1.5rem, 3.5vw, 2.1rem); letter-spacing: -.04em; }
     .mp-lk-group { margin-bottom: 28px; }
     .mp-lk-group:last-child { margin-bottom: 0; }
-    .mp-lk-h3 { font-size: .72rem; color: #FF4714; padding-bottom: 10px; font-weight: 900; display: block; text-transform: uppercase; border-bottom: 2px solid #FF4714; letter-spacing: .18em; margin-bottom: 12px; }
-    .mp-lk-grid { grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); gap: 10px; display: grid; }
-    .mp-lk-item { display: block; line-height: 52px; padding: 0 16px; font-size: .84rem; color: #333; box-shadow: 0 2px 8px rgba(0,0,0,.04); text-align: center; font-weight: 700; transition: all .2s; white-space: nowrap; border-radius: 12px; border: 1.5px solid #e8e8e8; height: 52px; background: #fff; text-decoration: none; overflow: hidden; text-overflow: ellipsis; }
-    .mp-lk-item:hover { box-shadow: 0 6px 20px rgba(255,71,20,.28); transform: translateY(-2px); border-color: #FF4714; color: #fff; background: #FF4714; }
+    .mp-lk-h3 { margin-bottom: 12px; border-bottom: 2px solid #FF4714; padding-bottom: 10px; font-size: .72rem; display: block; font-weight: 900; text-transform: uppercase; letter-spacing: .18em; color: #FF4714; }
+    .mp-lk-grid { gap: 10px; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); display: grid; }
+    .mp-lk-item { text-decoration: none; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,.04); padding: 0 16px; font-size: .84rem; text-overflow: ellipsis; white-space: nowrap; line-height: 52px; display: block; height: 52px; transition: all .2s; border-radius: 12px; font-weight: 700; color: #333; background: #fff; border: 1.5px solid #e8e8e8; overflow: hidden; }
+    .mp-lk-item:hover { box-shadow: 0 6px 20px rgba(255,71,20,.28); color: #fff; transform: translateY(-2px); background: #FF4714; border-color: #FF4714; }
     @media (max-width: 480px) {
       .mp-lk-section { padding: 48px 20px 44px; }
       .mp-lk-grid { gap: 8px; grid-template-columns: repeat(2, 1fr); }
-      .mp-lk-item { height: 48px; font-size: .82rem; line-height: 48px; }
+      .mp-lk-item { font-size: .82rem; line-height: 48px; height: 48px; }
       .mp-monologue { font-size: 1.35rem; }
       .mp-fact-title { font-size: 1.9rem; }
     }
 
     /* ── 방법론 이미지 ── */
     .mp-method-section { padding: 0 24px 72px; background: #fff; }
-    .mp-method-inner { max-width: 480px; margin: 0 auto; }
-    .mp-method-img { border-radius: 20px; width: 100%; display: block; box-shadow: 0 8px 28px rgba(0,0,0,.10); }
+    .mp-method-inner { margin: 0 auto; max-width: 480px; }
+    .mp-method-img { width: 100%; border-radius: 20px; box-shadow: 0 8px 28px rgba(0,0,0,.10); display: block; }
 
     /* munpul.kr micro-variation */
     .mp-sec { padding: 84px 20px; }
@@ -332,7 +344,7 @@
     .mp-header-logo { background: linear-gradient(90deg, #222, #FF4714); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     /* dynamic section */
     .mp-sec h2 { color: #1a1a1a; letter-spacing: -.025em; }
-    .mp-sec-divider { border-radius: 0; background: #c8380e; height: 3px; width: 52px; }
+    .mp-sec-divider { border-radius: 0; width: 52px; height: 3px; background: #c8380e; }
     .mp-sec-light { background: #fdfbf8; }
     .mp-sec-dark { background: #f7f7f5; }
     .mp-sec-mid { background: #f2f2ed; }
@@ -442,7 +454,7 @@
     <p class="mp-monologue">방법을 몰라서<br>다녀봐도 그대로예요...</p>
     <p class="mp-monologue">스스로 하는 의지가<br>없어서 걱정이에요...</p>
     <div class="mp-fact-box">
-      <p class="mp-fact-title">현재 다니는 학원</p>
+      <p class="mp-fact-title">{{지역}} {{키워드}}</p>
       <p class="mp-fact-title"><span class="mp-simple-underline">이거 되나요?</span></p>
     </div>
   </div>
@@ -738,6 +750,8 @@
   </div>
 </section>
 
+{{랜덤이미지섹션}}
+
 <section class="mp-planner-section">
   <div class="mp-planner-inner">
     <p class="mp-planner-eyebrow">ACADEMY LOCATION</p>
@@ -763,7 +777,7 @@
      유동 영역 (DYNAMIC — result.html JSON)
      ════════════════════════════════════════════ -->
 
-<section class="mp-sec mp-sec-light">
+<section class="mp-sec mp-sec-light" id="sec1">
   <div class="mp-sec-inner">
     <div class="mp-sec-divider"></div>
     <h2>{{section1.h2}}</h2>
@@ -777,7 +791,7 @@
   </div>
 </section>
 
-<section class="mp-sec mp-sec-dark">
+<section class="mp-sec mp-sec-dark" id="sec2">
   <div class="mp-sec-inner">
     <div class="mp-sec-divider"></div>
     <h2>{{section2.h2}}</h2>
@@ -812,10 +826,10 @@
   </div>
 </section>
 
-<section class="mp-sec mp-sec-mid">
+<section class="mp-sec mp-sec-mid" id="sec3">
   <div class="mp-sec-inner">
     <div class="mp-sec-divider"></div>
-    <h2>{{section3.h2}}</h2>
+    <h2>{{지역}} 관리 학교</h2>
     <p class="mp-body-text">{{section3.p}}</p>
     <ul class="mp-check-list">
       <li class="mp-check-item"><span class="mp-check-icon">✓</span>{{section3.1}}</li>
@@ -825,7 +839,7 @@
   </div>
 </section>
 
-<section class="mp-sec mp-sec-light">
+<section class="mp-sec mp-sec-light" id="sec4">
   <div class="mp-sec-inner">
     <div class="mp-sec-divider"></div>
     <h2>{{section4.h2}}</h2>
@@ -835,7 +849,7 @@
   </div>
 </section>
 
-<section class="mp-sec mp-sec-dark">
+<section class="mp-sec mp-sec-dark" id="sec5">
   <div class="mp-sec-inner">
     <div class="mp-sec-divider"></div>
     <h2>{{section5.h2}}</h2>
@@ -843,7 +857,7 @@
   </div>
 </section>
 
-<section class="mp-sec mp-sec-mid">
+<section class="mp-sec mp-sec-mid" id="sec6">
   <div class="mp-sec-inner">
     <div class="mp-sec-divider"></div>
     <h2>{{section6.h2}}</h2>
@@ -851,7 +865,7 @@
   </div>
 </section>
 
-<section class="mp-sec mp-sec-light">
+<section class="mp-sec mp-sec-light" id="sec7">
   <div class="mp-sec-inner">
     <div class="mp-sec-divider"></div>
     <h2>{{section7.h2}}</h2>
@@ -861,7 +875,7 @@
   </div>
 </section>
 
-<section class="mp-sec mp-sec-dark">
+<section class="mp-sec mp-sec-dark" id="sec8">
   <div class="mp-sec-inner">
     <div class="mp-sec-divider"></div>
     <h2>{{section8.h2}}</h2>
@@ -874,7 +888,7 @@
 <section class="mp-sec mp-sec-light" id="info">
   <div class="mp-sec-inner">
     <div class="mp-sec-divider"></div>
-    <h2>{{section9.h2}}</h2>
+    <h2>{{지역}} {{키워드}} 정보</h2>
     <div class="mp-table-wrap">
       <table class="mp-info-table">
         <tr>
@@ -894,7 +908,7 @@
   </div>
 </section>
 
-<section class="mp-sec mp-sec-mid">
+<section class="mp-sec mp-sec-mid" id="faq">
   <div class="mp-sec-inner">
     <div class="mp-sec-divider"></div>
     <h2>{{section10.h2}}</h2>
@@ -906,6 +920,7 @@
 
 {{링크섹션}}
 
+{{학교ld}}
 
 <!-- ════════════════════════════════════════════
      스크립트
